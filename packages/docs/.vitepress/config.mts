@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "z-element",
   description: "z-element组件库",
-  base: '/z-el/',
+  base: '/z-element/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
