@@ -38,8 +38,5 @@
   },
   "peerDependencies": {
     "vue": "^3.4.19"
-  },
-  "dependencies": {
-    "release-it": "15.11.0"
   }
 }
