@@ -27,20 +27,6 @@ const customStyle = computed(() => ({color: props.color ?? void 0}))
   </i>
 </template>
 
-<style scoped>
-.zel-icon {
-  --zel-icon-color: inherit;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  fill: currentColor;
-  color: var(--zel-icon-color);
-  font-size: inherit;
-}
-@each $val in primary, info, success, warning, danger {
-  .zel-icon--$(val) {
-    --zel-icon-color: var(--zel-color-$(val));
-  }
-}
+<style>
+@import "./style.css";
 </style>

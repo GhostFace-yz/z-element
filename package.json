@@ -13,7 +13,8 @@
     "story": "yarn workspace @z-el/play storybook",
     "docs:dev": "yarn workspace @z-el/docs run dev",
     "docs:build": "yarn workspace @z-el/docs run build",
-    "test": "yarn workspace @z-el/components run test"
+    "test": "yarn workspace @z-el/components run test",
+    "build": "yarn workspace @relic-yangzheng/z-element run build"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
@@ -35,10 +36,13 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@relic-yangzheng/z-element": "*",
     "lodash-es": "^4.17.21",
+    "move-file-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.5.6",
     "postcss-simple-vars": "^7.0.1",
-    "vue": "^3.4.19",
-    "z-el": "*"
+    "rimraf": "^6.0.1",
+    "vue": "^3.4.19"
   }
 }

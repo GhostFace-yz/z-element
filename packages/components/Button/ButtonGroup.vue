@@ -23,3 +23,7 @@ provide(
     <slot></slot>
   </div>
 </template>
+
+<style scoped>
+@import "./style.css";
+</style>
