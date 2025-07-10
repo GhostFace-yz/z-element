@@ -1,6 +1,6 @@
 {
   "name": "@relic-yangzheng/z-element",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/umd/index.umd.cjs",
   "license": "MIT",
   "type": "module",
