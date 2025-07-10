@@ -1,4 +1,8 @@
 import Button from './Button.vue'
-import { withInstaller } from "@z-el/utils/install.ts"
+import ButtonGroup from './ButtonGroup.vue'
+import { withInstall } from "@z-el/utils/install.ts"
 
-export const ZelButton = withInstaller(Button)
+export const ZelButton = withInstall(Button)
+export const ZelButtonGroup = withInstall(ButtonGroup)
+
+export * from  './type.ts'

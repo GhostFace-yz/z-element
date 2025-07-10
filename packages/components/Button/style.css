@@ -1,0 +1,199 @@
+/*.zel-button-group {*/
+/*    --zel-button-group-border-color: var(--zel-border-color-lighter);*/
+/*}*/
+.zel-button {
+    --zel-button-font-weight: var(--zel-font-weight-primary);
+    --zel-button-border-color: var(--zel-border-color);
+    --zel-button-bg-color: var(--zel-fill-color-blank);
+    --zel-button-text-color: var(--zel-text-color-regular);
+    --zel-button-disabled-text-color: var(--zel-disabled-text-color);
+    --zel-button-disabled-bg-color: var(--zel-fill-color-blank);
+    --zel-button-disabled-border-color: var(--zel-border-color-light);
+    --zel-button-hover-text-color: var(--zel-color-primary);
+    --zel-button-hover-bg-color: var(--zel-color-primary-light-9);
+    --zel-button-hover-border-color: var(--zel-color-primary-light-7);
+    --zel-button-active-text-color: var(--zel-button-hover-text-color);
+    --zel-button-active-border-color: var(--zel-color-primary);
+    --zel-button-active-bg-color: var(--zel-button-hover-bg-color);
+    --zel-button-outline-color: var(--zel-color-primary-light-5);
+    --zel-button-active-color: var(--zel-text-color-primary);
+}
+
+.zel-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    height: 32px;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--zel-button-text-color);
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    transition: 0.1s;
+    font-weight: var(--zel-button-font-weight);
+    user-select: none;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    background-color: var(--zel-button-bg-color);
+    border: var(--zel-border);
+    border-color: var(--zel-button-border-color);
+    padding: 8px 15px;
+    font-size: var(--zel-font-size-base);
+    border-radius: var(--zel-border-radius-base);
+    & + & {
+        margin-left: 12px;
+    }
+    &:hover,
+    &:focus {
+        color: var(--zel-button-hover-text-color);
+        border-color: var(--zel-button-hover-border-color);
+        background-color: var(--zel-button-hover-bg-color);
+        outline: none;
+    }
+    &:active {
+        color: var(--zel-button-active-text-color);
+        border-color: var(--zel-button-active-border-color);
+        background-color: var(--zel-button-active-bg-color);
+        outline: none;
+    }
+    /*plain*/
+    &.is-plain {
+        --zel-button-hover-text-color: var(--zel-color-primary);
+        --zel-button-hover-bg-color: var(--zel-fill-color-blank);
+        --zel-button-hover-border-color: var(--zel-color-primary);
+    }
+    /*round*/
+    &.is-round {
+        border-radius: var(--zel-border-radius-round);
+    }
+    /*circle*/
+    &.is-circle {
+        border-radius: 50%;
+        padding: 8px;
+    }
+    /*disabled*/
+    &.is-loading,
+    &.is-disabled,
+    &.is-disabled:hover,
+    &.is-disabled:focus,
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus {
+        color: var(--zel-button-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+        background-color: var(--zel-button-disabled-bg-color);
+        border-color: var(--zel-button-disabled-border-color);
+    }
+    [class*='zel-icon'] {
+        width: 1em;
+        height: 1em;
+    }
+}
+@each $val in primary, success, warning, info, danger {
+    .zel-button--$(val) {
+    --zel-button-text-color: var(--zel-color-white);
+    --zel-button-bg-color: var(--zel-color-$(val));
+    --zel-button-border-color: var(--zel-color-$(val));
+    --zel-button-outline-color: var(--zel-color-$(val)-light-5);
+    --zel-button-active-color: var(--zel-color-$(val)-dark-2);
+    --zel-button-hover-text-color: var(--zel-color-white);
+    --zel-button-hover-bg-color: var(--zel-color-$(val)-light-3);
+    --zel-button-hover-border-color: var(--zel-color-$(val)-light-3);
+    --zel-button-active-bg-color: var(--zel-color-$(val)-dark-2);
+    --zel-button-active-border-color: var(--zel-color-$(val)-dark-2);
+    --zel-button-disabled-text-color: var(--zel-color-white);
+    --zel-button-disabled-bg-color: var(--zel-color-$(val)-light-5);
+    --zel-button-disabled-border-color: var(--zel-color-$(val)-light-5);
+}
+    .zel-button--$(val).is-plain {
+    --zel-button-text-color: var(--zel-color-$(val));
+    --zel-button-bg-color: var(--zel-color-$(val)-light-9);
+    --zel-button-border-color: var(--zel-color-$(val)-light-5);
+    --zel-button-hover-text-color: var(--zel-color-white);
+    --zel-button-hover-bg-color: var(--zel-color-$(val));
+    --zel-button-hover-border-color: var(--zel-color-$(val));
+    --zel-button-active-text-color: var(--zel-color-white);
+
+    --zel-button-disabled-text-color: var(--zel-color-$(val)-light-5);
+    --zel-button-disabled-bg-color: var(--zel-color-$(val)-light-9);
+    --zel-button-disabled-border-color: var(--zel-color-$(val)-light-8);
+}
+}
+.zel-button--large {
+    --zel-button-size: 40px;
+    height: var(--zel-button-size);
+    padding: 12px 19px;
+    font-size: var(--zel-font-size-base);
+    border-radius: var(--zel-border-radius-base);
+    /*circle*/
+    &.is-circle {
+        border-radius: 50%;
+        padding: 12px;
+    }
+}
+.zel-button--small {
+    --zel-button-size: 24px;
+    height: var(--zel-button-size);
+    padding: 5px 11px;
+    font-size: 12px;
+    border-radius: calc(var(--zel-border-radius-base) - 1px);
+    /*circle*/
+    &.is-circle {
+        border-radius: 50%;
+        padding: 5px;
+    }
+    [class*='er-icon'] {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+.zel-button-group {
+    display: inline-block;
+    vertical-align: middle;
+
+    &::after {
+        clear: both;
+    }
+    & > :deep(.zel-button){
+        float: left;
+        position: relative;
+        margin-left: 0;
+        &:first-child{
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right-color: var(--zel-button-group-border-color);
+        }
+        &:last-child{
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left-color: var(--zel-button-group-border-color);
+        }
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+
+            border-left-color: var(--zel-button-group-border-color);
+            border-right-color: var(--zel-button-group-border-color);
+        }
+        &:not(:last-child) {
+            margin-right: -1px;
+        }
+        &:first-child:last-child {
+            border-top-right-radius: var(--zel-border-radius-base);
+            border-bottom-right-radius: var(--zel-border-radius-base);
+            border-top-left-radius: var(--zel-border-radius-base);
+            border-bottom-left-radius: var(--zel-border-radius-base);
+
+            &.is-round {
+                border-radius: var(--zel-border-radius-round);
+            }
+
+            &.is-circle {
+                border-radius: 50%;
+            }
+        }
+    }
+}

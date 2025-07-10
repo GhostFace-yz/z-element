@@ -10,9 +10,10 @@
   ],
   "scripts": {
     "dev": "yarn workspace @z-el/play run dev",
+    "story": "yarn workspace @z-el/play storybook",
     "docs:dev": "yarn workspace @z-el/docs run dev",
     "docs:build": "yarn workspace @z-el/docs run build",
-    "test": "echo 'todo'"
+    "test": "yarn workspace @z-el/components run test"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
@@ -24,15 +25,20 @@
     "postcss-each": "^1.1.0",
     "postcss-each-variables": "^0.3.0",
     "postcss-for": "^2.1.1",
-    "postcss-nested": "^6.0.1",
+    "postcss-nested": "^7.0.2",
     "typescript": "^5.2.2",
     "vite": "^5.1.4",
     "vitest": "^1.4.0",
     "vue-tsc": "^1.8.27"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
     "lodash-es": "^4.17.21",
+    "postcss": "^8.5.6",
+    "postcss-simple-vars": "^7.0.1",
     "vue": "^3.4.19",
-    "z-el": "file:./packages/core"
+    "z-el": "*"
   }
 }

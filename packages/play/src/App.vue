@@ -1,22 +1,17 @@
 <script setup lang="ts">
-
+import {ZelButton, ZelButtonGroup} from "z-el";
+console.log("=>(App.vue:4) ZelButton", ZelButton);
+console.log("=>(App.vue:3) ZelButtonGroup", ZelButtonGroup);
 </script>
 
 <template>
-  <zel-button></zel-button>
+<zel-button icon="search" :useThrottle="false"></zel-button>
+<!--<zel-button-group>-->
+<!--  <zel-button>按钮1</zel-button>-->
+<!--  <zel-button>按钮2</zel-button>-->
+<!--</zel-button-group>-->
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
