@@ -1,0 +1,58 @@
+.zel-collapse {
+    --zel-collapse-border-color: var(--zel-border-color-light);
+    --zel-collapse-header-height: 48px;
+    --zel-collapse-header-bg-color: var(--zel-fill-color-blank);
+    --zel-collapse-header-text-color: var(--zel-text-color-primary);
+    --zel-collapse-header-font-size: 13px;
+    --zel-collapse-content-bg-color: var(--zel-fill-color-blank);
+    --zel-collapse-content-font-size: 13px;
+    --zel-collapse-content-text-color: var(--zel-text-color-primary);
+    --zel-collapse-disabled-text-color: var(--zel-disabled-text-color);
+    --zel-collapse-disabled-border-color: var(--zel-border-color-lighter);
+    border-top: 1px solid var(--zel-collapse-border-color);
+    border-bottom: 1px solid var(--zel-collapse-border-color);
+}
+
+.zel-collapse-item__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--zel-collapse-header-height);
+    line-height: var(--zel-collapse-header-height);
+    background-color: var(--zel-collapse-header-bg-color);
+    color: var(--zel-collapse-header-text-color);
+    cursor: pointer;
+    font-size: var(--zel-collapse-header-font-size);
+    font-weight: 500;
+    transition: border-bottom-color var(--zel-transition-duration);
+    outline: none;
+    border-bottom: 1px solid var(--zel-collapse-border-color);
+    &.is-disabled {
+        color: var(--zel-collapse-disabled-text-color);
+        cursor: not-allowed;
+        background-image: none;
+    }
+    &.is-active {
+        border-bottom-color: transparent;
+        .header-angle {
+            transform: rotate(90deg);
+        }
+    }
+    .header-angle {
+        transition: transform var(--zel-transition-duration);
+    }
+}
+.zel-collapse-item__content {
+    will-change: height;
+    background-color: var(--zel-collapse-content-bg-color);
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: var(--zel-collapse-content-font-size);
+    color: var(--zel-collapse-content-text-color);
+    border-bottom: 1px solid var(--zel-collapse-border-color);
+    padding-bottom: 25px;
+}
+.slide-enter-active,
+.slide-leave-active {
+    transition: height var(--zel-transition-duration) ease-in-out;
+}
