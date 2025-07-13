@@ -45,7 +45,10 @@ const _ref = ref<HTMLButtonElement>()
 const iconStyle = computed(() => ({marginRight: slots.default? '6px': '0px'}))
 
 defineExpose<ButtonInstance>({
-  ref: _ref
+  ref: _ref,
+  disabled,
+  size,
+  type,
 })
 
 </script>

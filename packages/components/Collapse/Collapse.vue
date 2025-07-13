@@ -1,19 +1,17 @@
 <script setup lang="ts">
 import type {CollapseEmits, CollapseProps, CollapseItemName} from './type.ts'
-import {provide, ref, watch} from 'vue'
+import {provide, ref, watch, watchEffect} from 'vue'
+import {debugWarn} from "@z-el/utils";
 import {COLLAPSE_CTX_KEY} from './constants.ts'
 
+const COMP_NAME = 'ZelCollapse' as const
+
 defineOptions({
-  name: 'ZelCollapse',
+  name: COMP_NAME,
 })
 const props = defineProps<CollapseProps>()
 const emits = defineEmits<CollapseEmits>()
 const activeNames = ref<CollapseItemName[]>(props.modelValue)
-console.log("=>(Collapse.vue:13) activeNames", activeNames);
-console.log("=>(Collapse.vue:13) props.modelValue", props.modelValue);
-if (props.accordion && activeNames.value.length > 1) {
-  console.warn('accordion mode should only have one active item')
-}
 
 function handleItemClick(item: CollapseItemName) {
   let _activeNames = [...activeNames.value];
@@ -41,9 +39,21 @@ const updateActiveNames = (newActiveNames: CollapseItemName[]) => {
   emits("change", newActiveNames)
 }
 
+watchEffect(() => {
+  if(props.accordion && activeNames.value.length> 1) {
+    debugWarn(COMP_NAME,"accordion mode should only have one active item")
+  }
+})
+
 watch(
     () => props.modelValue,
-    (newNames) => updateActiveNames(newNames),
+    (newNames) => {
+      if(newNames === undefined) {
+        updateActiveNames([])
+      } else {
+        updateActiveNames(newNames)
+      }
+    }
 )
 
 provide(COLLAPSE_CTX_KEY, {

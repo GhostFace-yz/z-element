@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { ZelCollapse, ZelCollapseItem } from "@relic-yangzheng/z-element";
+import '@relic-yangzheng/z-element/dist/theme/Collapse.css'
 
 type Story = StoryObj<typeof ZelCollapse>;
 

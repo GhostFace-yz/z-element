@@ -3,7 +3,7 @@ import type { CollapseItemProps } from './type.ts'
 import { inject, computed } from 'vue'
 import { COLLAPSE_CTX_KEY } from "./constants.ts";
 import ZelIcon from "../Icon/Icon.vue";
-
+import transitionEvents from "./transitionEvents.ts";
 
 defineOptions({
   name: 'ZelCollapseItem',
@@ -44,11 +44,14 @@ const handleClick = () => {
       </span>
       <zel-icon icon="angle-right" class="header-angle" />
     </div>
+    <transition name="slide" v-on="transitionEvents">
       <div class="zel-collapse-item__wrapper" v-show="isActive">
         <div class="zel-collapse-item__content" :id="`item-content-${name}`">
           <slot></slot>
         </div>
       </div>
+    </transition>
+
   </div>
 </template>
 
